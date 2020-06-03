@@ -4,9 +4,18 @@ import {Container} from './style.js';
 import {Animated} from 'react-native';
 import { PanGestureHandler, State } from 'react-native-gesture-handler';
 
+// import Anuncio from '../../components/Anuncio';
 import Teclado from '../../components/Teclado';
 import Visor from '../../components/Visor';
 import Menu from '../../components/Menu';
+
+import {
+    AdMobBanner,
+    AdMobInterstitial,
+    PublisherBanner,
+    AdMobRewarded,
+    setTestDeviceIDAsync,
+  } from 'expo-ads-admob';
 
 export default function Home({temaDark}) {
     
@@ -117,6 +126,13 @@ export default function Home({temaDark}) {
                     <Teclado 
                         handlePressBotao={handlePressBotao} 
                         temaDark={temaDark}/>
+
+                <AdMobBanner
+                    bannerSize="fullBanner"
+                    adUnitID="ca-app-pub-2855368523447036~3684952469" // Test ID, Replace with your-admob-unit-id
+                    // servePersonalizedAds // true or false
+                    testDeviceID="EMULATOR"
+                    onDidFailToReceiveAdWithError={this.bannerError} />            
                 </Container>
             </PanGestureHandler>
             <Menu translateX={translateX} temaDark={temaDark}/>

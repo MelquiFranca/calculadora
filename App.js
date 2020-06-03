@@ -3,6 +3,6 @@ import Home from './src/pages/Home';
 
 export default function App() {
   return (
-    <Home temaDark={true}/>
+    <Home temaDark={false}/>
   );
 }
